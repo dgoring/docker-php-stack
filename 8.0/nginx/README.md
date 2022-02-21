@@ -1,5 +1,5 @@
-# php7.4-fpm + nginx
-Docker image based on the image `php:7.4-fpm` with nginx added on, this is for my personal use but if you have any suggestions please add an issue or create a pull request
+# php8.1-fpm + nginx
+Docker image based on the image `php:8.0-fpm` with nginx added on, this is for my personal use but if you have any suggestions please add an issue or create a pull request
 
 ## included packeges
 ### php extentions:
