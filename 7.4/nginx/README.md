@@ -1,4 +1,4 @@
-# php7.4-fpm + nginx
+# php7.4-fpm + nginx + mariadb
 Docker image based on the image `php:7.4-fpm` with nginx added on, this is for my personal use but if you have any suggestions please add an issue or create a pull request
 
 ## included packeges
@@ -21,13 +21,17 @@ utilities
 ## Usage
 ```yaml
   web:
-    image: dgoring/php:7.2-nginx
+    image: dgoring/php-stack:7.4-nginx
     restart: always
     volumes:
       # 1. mount your workdir path
       - /site:/site
       # 2. mount your configuration files
       - /config:/config
+    environment:
+      MYSQL_DATABASE: 'development'
+      MYSQL_USERNAME: 'development'
+      MYSQL_PASSWORD: 'secret'
 ```
 optional config files
 

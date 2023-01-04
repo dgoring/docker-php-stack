@@ -1,4 +1,4 @@
-# php8.1-fpm + nginx
+# php8.1-fpm + nginx + mariadb
 Docker image based on the image `php:8.1-fpm` with nginx added on, this is for my personal use but if you have any suggestions please add an issue or create a pull request
 
 ## included packeges
