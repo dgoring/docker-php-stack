@@ -1,4 +1,4 @@
-build/version: build/8.1-nginx build/8.1-apache build/8.0-nginx build/8.0-apache build/7.4-nginx build/7.4-apache build/7.3-nginx build/7.3-apache build/7.2-nginx build/7.2-apache build/7.1-nginx build/7.1-apache build/7.0-nginx build/7.0-apache build/5.6-nginx build/5.6-apache
+build/version: build/8.2-nginx build/8.2-apache  build/8.1-nginx build/8.1-apache build/8.0-nginx build/8.0-apache build/7.4-nginx build/7.4-apache build/7.3-nginx build/7.3-apache build/7.2-nginx build/7.2-apache build/7.1-nginx build/7.1-apache build/7.0-nginx build/7.0-apache build/5.6-nginx build/5.6-apache
 	date > build/version
 
 loggedin:
@@ -9,6 +9,18 @@ endif
 ifneq ($(docker-machine active),)
 	docker-machine start
 endif
+
+build/8.2-nginx: 8.2/nginx
+	@make loggedin
+	docker image build -t dgoring/php-stack:8.2-nginx ./8.2/nginx
+	docker push dgoring/php-stack:8.2-nginx
+	@date > ./build/8.2-nginx
+
+build/8.2-apache: 8.2/apache
+	@make loggedin
+	docker image build -t dgoring/php-stack:8.2-apache ./8.2/apache
+	docker push dgoring/php-stack:8.2-apache
+	@date > ./build/8.2-apache
 
 build/8.1-nginx: 8.1/nginx
 	@make loggedin
